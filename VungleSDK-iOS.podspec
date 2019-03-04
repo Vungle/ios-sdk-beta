@@ -20,7 +20,7 @@ s.requires_arc = true
 
 s.source           = { :git => "https://github.com/Vungle/ios-sdk-beta.git", :tag => "6.4.0" }
 
-s.vendored_frameworks = 'Framework/VungleSDK.framework'
+s.vendored_frameworks = 'VungleSDK.framework'
 s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
