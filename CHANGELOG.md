@@ -1,7 +1,13 @@
 ## Changelog
 
 ## VERSION 6.4.0
-* Support for iOS 12
+* Cache Optimization - Multiple placements are optimized for cached ad availability under the hood when the SDK initializes.  No additional work from developer needed.
+* Privacy By Design - Removed latitude and longitude collection to protect users.
+* Reduced App Store loading delay to reduce blank loading screens.
+* Updated Moat to no longer collect location data.
+* Introduced new MREC Video placement type to serve higher performing banners.
+* Removed UIWebView references.
+* Publisher controls to override minimum disk requirements, helping to ensure a good user experiences.
 
 
 ## VERSION 6.3.2
