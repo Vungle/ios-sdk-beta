@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "VungleSDK-iOS"
-s.version          = "6.4.1"
+s.version          = "6.4.2"
 s.summary          = "Vungle's iOS SDK'"
 s.description      = <<-DESC
 An SDK for video ad based monetization with the Vungle Network
@@ -15,10 +15,10 @@ s.homepage         = "http://www.vungle.com/"
 s.license          = { :type => "Commercial", :file => "LICENSE.md" }
 s.author           = { "Vungle" => "tech-support@vungle.com" }
 
-s.platform     = :ios, '8.0'
+s.platform     = :ios, '9.0'
 s.requires_arc = true
 
-s.source           = { :git => "https://github.com/Vungle/ios-sdk-beta.git", :tag => "6.4.1" }
+s.source           = { :git => "https://github.com/Vungle/ios-sdk-beta.git", :tag => "6.4.2" }
 
 s.vendored_frameworks = 'VungleSDK.framework'
 s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
