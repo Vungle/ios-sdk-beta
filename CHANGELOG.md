@@ -1,5 +1,11 @@
 ## Changelog
 
+## VERSION 6.5.0
+* Introduction of Banner Format
+* Continuous improvements to ad caching
+* Updated Moat framework
+* Squashed many other bugs
+
 ## VERSION 6.4.0
 * Cache Optimization - Multiple placements are optimized for cached ad availability under the hood when the SDK initializes.  No additional work from developer needed.
 * Privacy By Design - Removed latitude and longitude collection to protect users.
