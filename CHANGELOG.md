@@ -1,5 +1,9 @@
 ## Changelog
 
+## VERSION 6.9.1
+* OM SDK Integration - The Open Measurement Software Development Kit (OM SDK) is designed to facilitate third-party viewability and verification measurement for ads served by Vungle.
+* Stability improvements
+
 ## VERSION 6.5.0
 * Introduction of Banner Format
 * Continuous improvements to ad caching
