@@ -11,6 +11,11 @@ The Vungle iOS SDK supports iOS 8.0 and above, including iOS 12, both 32bit and 
 Please Note: Xcode 8 does not include support for iPhone X.
 
 ## Release Notes
+
+### 6.9.1
+* OM SDK Integration - The Open Measurement Software Development Kit (OM SDK) is designed to facilitate third-party viewability and verification measurement for ads served by Vungle.
+* Stability improvements
+
 ### 6.4.0
 * Cache Optimization - Multiple placements are optimized for cached ad availability under the hood when the SDK initializes.  No additional work from developer needed.
 * Privacy By Design - Removed latitude and longitude collection to protect users.
