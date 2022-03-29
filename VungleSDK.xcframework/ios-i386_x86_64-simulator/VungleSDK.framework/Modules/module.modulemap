@@ -13,5 +13,10 @@ framework module VungleSDK {
       header "VungleSDKHeaderBidding.h"
   }
   
+  module VungleSDK {
+      header "VungleNativeAd.h"
+      header "VungleMediaView.h"
+  }
+  
   module * { export * }
 }

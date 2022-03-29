@@ -1,7 +1,7 @@
 //
 //  VungleSDK.h
 //  Vungle iOS SDK
-//  SDK Version: 6.10.1
+//  SDK Version: 6.11.0-early1
 //
 //  Copyright (c) 2013-Present Vungle Inc. All rights reserved.
 //
@@ -80,6 +80,12 @@ typedef enum {
     VungleSDKErrorUnknownBannerSize,
     VungleSDKResetPlacementForDifferentAdSize,
     VungleSDKErrorSDKAlreadyInitializing,
+    VungleSDKErrorInvalidAdTypeForNativeAdExperience,
+    VungleSDKErrorMissingAdMarkupForPlacement,
+    VungleSDKErrorInvalidAdMarkupForPlacement,
+    VungleSDKErrorIllegalAdRequest,
+    VungleSDKErrorSetNativeAdLoadCompletionBlock,
+    VungleSDKErrorNativeAdLoad,
 } VungleSDKErrorCode;
 
 typedef NS_ENUM (NSInteger, VungleConsentStatus) {
@@ -201,7 +207,6 @@ typedef NS_ENUM (NSInteger, VungleAdSize) {
 @interface VungleSDK : NSObject
 @property (strong) NSDictionary *userData;
 @property (nullable, strong) id <VungleSDKDelegate> delegate;
-@property (assign) BOOL muted;
 @property (atomic, readonly, getter = isInitialized) BOOL initialized;
 
 /**
@@ -357,6 +362,17 @@ typedef NS_ENUM (NSInteger, VungleAdSize) {
 - (BOOL)loadPlacementWithID:(NSString *)placementID withSize:(VungleAdSize)size error:(NSError **)error;
 
 #pragma mark - Utility methods
+
+/**
+ * @note This method replaces the `muted` property previously included in VungleSDK.h
+ * @note IT IS HIGHLY RECOMMENDED to set the muted property at the placement level using
+ * play options (key VunglePlayAdOptionKeyStartMuted).
+ * Assigning a value to this property will allow all ads played by the SDK to start muted, or
+ * unmuted. Once called, all ads will use the value provided until the SDK restarts, or until the
+ * method is called with a different value.
+ */
+- (void)setMuted:(BOOL)muted;
+
 /**
  * Returns debug info.
  */
@@ -424,6 +440,13 @@ typedef NS_ENUM (NSInteger, VungleAdSize) {
  * This method disables refresh functionality for all banner and MREC placements.
  */
 - (void)disableBannerRefresh;
+
+/**
+ * This method takes the COPPA status of users. If COPPA status is accepted, Vungle will be able to send targeted ads.
+ * This method should be called before initialization.
+ * @param status the bool flag to be set for user COPPA status.
+ */
+- (void)updateCOPPAStatus:(BOOL)status;
 
 @end
 
