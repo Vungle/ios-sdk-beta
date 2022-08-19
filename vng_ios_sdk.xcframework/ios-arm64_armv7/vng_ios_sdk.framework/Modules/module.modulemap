@@ -1,0 +1,11 @@
+framework module vng_ios_sdk {
+  umbrella header "vng_ios_sdk.h"
+
+  export *
+  module * { export * }
+}
+
+module vng_ios_sdk.Swift {
+    header "vng_ios_sdk-Swift.h"
+    requires objc
+}
