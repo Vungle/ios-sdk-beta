@@ -1,0 +1,11 @@
+framework module VungleAds {
+  umbrella header "VungleAds.h"
+
+  export *
+  module * { export * }
+}
+
+module VungleAds.Swift {
+    header "VungleAds-Swift.h"
+    requires objc
+}
