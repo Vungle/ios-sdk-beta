@@ -1,0 +1,17 @@
+framework module VungleAdmobAdapter {
+    umbrella header "VungleAdapter.h"
+    
+    module VungleAdNetworkExtras {
+        header "VungleAdNetworkExtras.h"
+    }
+    
+    module VungleRouterConfiguration {
+        header "VungleRouterConfiguration.h"
+    }
+    
+    module VungleRouterConsent {
+        header "VungleRouterConsent.h"
+    }
+    
+    module * {export *}
+}
