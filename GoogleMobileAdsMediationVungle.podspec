@@ -1,10 +1,10 @@
 #
-# Be sure to run `pod spec lint VungleAds.podspec' to ensure this is a
+# Be sure to run `pod spec lint GoogleMobileAdsMediationVungle.podspec' to ensure this is a
 # valid spec before submitting.
 #
 
 Pod::Spec.new do |s|
-s.name             = "VungleAdsAdmobAdapter"
+s.name             = "GoogleMobileAdsMediationVungle"
 s.version          = "7.0.0.0-early1"
 s.summary          = "Vungle Adapter for Admob"
 s.description      = <<-DESC
