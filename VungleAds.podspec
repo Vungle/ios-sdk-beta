@@ -27,6 +27,8 @@ s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
 s.weak_framework = 'WebKit', 'UIKit', 'Foundation'
-s.libraries = 'z'
+s.libraries = 'z', 'c++', 'xml2'
+s.swift_versions = '5.0'
+s.swift_version  = '5.0'
 
 end
