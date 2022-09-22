@@ -18,7 +18,7 @@ s.author           = { "Vungle" => "tech-support@vungle.com" }
 s.platform     = :ios, '10.0'
 s.requires_arc = true
 
-s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x-ea/Vungle7.0.0-early1.zip"}
+s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x-ea/Vungle7.0.0-early1_version2.zip"}
 s.source_files        = "static/VungleAdsSDK.xcframework/**/*.h",
 s.public_header_files = "static/VungleAdsSDK.xcframework/**/*.h",
 
