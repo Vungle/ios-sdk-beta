@@ -24,6 +24,9 @@ s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.co
 s.vendored_frameworks = 'VungleAdMobAdapter.xcframework'
 s.preserve_paths = "LICENSE.md"
 
+s.user_target_xcconfig = {"EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"}
+s.pod_target_xcconfig =  {"EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"}
+
 s.dependencies = {"VungleAds": "7.0.0-early1", "Google-Mobile-Ads-SDK": "~> 9.10"}
 
 end
