@@ -19,15 +19,12 @@ s.platform     = :ios, '10.0'
 s.requires_arc = true
 
 s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x-ea/Vungle7.0.0-early1_version2.zip"}
-s.source_files        = "static/VungleAdsSDK.xcframework/**/*.h",
-s.public_header_files = "static/VungleAdsSDK.xcframework/**/*.h",
 
 s.vendored_frameworks = 'static/VungleAdsSDK.xcframework'
-s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
 s.weak_framework = 'WebKit', 'UIKit', 'Foundation'
-s.libraries = 'z', 'c++', 'xml2'
+s.libraries = 'z'
 s.swift_versions = '5.0'
 s.swift_version  = '5.0'
 
