@@ -29,14 +29,12 @@ s.source =
 
 s.vendored_frameworks = "AppLovinMediationVungleAdapter.xcframework"
 
-
 s.dependency 'VungleAds', '= 7.0.0-early1'
 s.dependency 'AppLovinSDK'
 s.swift_version = '5.0'
 
-s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+s.pod_target_xcconfig  = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-
 
 s.description = <<-DESC
 
