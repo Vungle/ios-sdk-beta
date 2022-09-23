@@ -27,7 +27,7 @@ s.source =
   :type => 'zip'
 }
 
-s.vendored_frameworks = "AppLovinMediationVungleAdapter.xcframework"
+s.vendored_frameworks = "VungleMAXAdapter.xcframework"
 
 s.dependency 'VungleAds', '= 7.0.0-early1'
 s.dependency 'AppLovinSDK'
