@@ -1,0 +1,5 @@
+framework module VungleMAXAdapter {
+    umbrella header "ALVungleMediationAdapter.h"
+    
+    module * {export *}
+}
