@@ -26,6 +26,7 @@ s.preserve_paths = "LICENSE.md"
 
 s.user_target_xcconfig = {"EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"}
 s.pod_target_xcconfig =  {"EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"}
+s.swift_version = '5.0'
 
 s.dependencies = {"VungleAds": "7.0.0-early1", "Google-Mobile-Ads-SDK": "~> 9.10"}
 
