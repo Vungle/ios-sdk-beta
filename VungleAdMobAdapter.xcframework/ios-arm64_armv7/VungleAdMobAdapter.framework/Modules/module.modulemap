@@ -5,10 +5,6 @@ framework module VungleAdmobAdapter {
         header "VungleAdNetworkExtras.h"
     }
     
-    module VungleRouterConfiguration {
-        header "VungleRouterConfiguration.h"
-    }
-    
     module VungleRouterConsent {
         header "VungleRouterConsent.h"
     }

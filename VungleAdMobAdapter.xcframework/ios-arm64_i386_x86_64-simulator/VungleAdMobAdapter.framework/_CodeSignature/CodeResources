@@ -8,6 +8,10 @@
 		<data>
 		6XeCginwmONbu5xANnrkZG/C+uI=
 		</data>
+		<key>Headers/VungleAdapter.h</key>
+		<data>
+		UWmisVEvvuLjAb5fGv6k+6nlwls=
+		</data>
 		<key>Headers/VungleRouterConsent.h</key>
 		<data>
 		ykuV7cQWhxTA4vOL14TG94MG1Sc=
@@ -32,6 +36,17 @@
 			<key>hash2</key>
 			<data>
 			vLu8ntMD6nrNwuHsEkiWwOgSJQ/4WcFPDQ94KvotSIY=
+			</data>
+		</dict>
+		<key>Headers/VungleAdapter.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UWmisVEvvuLjAb5fGv6k+6nlwls=
+			</data>
+			<key>hash2</key>
+			<data>
+			FrLLAcZGX7MlI9WDWGdNLe3rQASjdXWKSIgW4BJD2OI=
 			</data>
 		</dict>
 		<key>Headers/VungleRouterConsent.h</key>
