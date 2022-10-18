@@ -20,7 +20,7 @@ s.requires_arc = true
 
 s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x-ea/admob/VungleAdapter-7.0.0.0-early1.zip" }
 
-s.vendored_frameworks = 'VungleAdapter.xcframework'
+s.vendored_frameworks = "VungleAdapter.xcframework"
 s.preserve_paths = "LICENSE.md"
 
 s.user_target_xcconfig = { "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386" }
