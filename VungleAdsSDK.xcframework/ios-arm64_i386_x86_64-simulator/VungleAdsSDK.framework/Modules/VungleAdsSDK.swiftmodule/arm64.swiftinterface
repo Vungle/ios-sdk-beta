@@ -166,7 +166,7 @@ import zlib
   }
   @objc final public class func initWithAppId(_ appId: Swift.String, completion: @escaping (Foundation.NSError?) -> Swift.Void)
   @objc final public class func isInitialized() -> Swift.Bool
-  @objc public static func getBiddingToken() -> Swift.String?
+  @objc public static func getBiddingToken() -> Swift.String
   @objc final public class func setIntegrationName(_ integrationName: Swift.String, version: Swift.String)
   @objc deinit
 }

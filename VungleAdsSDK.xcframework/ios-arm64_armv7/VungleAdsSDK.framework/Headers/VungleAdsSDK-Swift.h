@@ -292,13 +292,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Bool to check if the SDK has already been initialized successfully or not.
 + (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 /// This method returns the encoded token to be used for the bidding feature.
-/// This method will return nil if it is unable to find an available token.
 ///
 /// returns:
-/// The encoded string token or nil
+/// The encoded string token
 /// Note: The current bidding token version is 3. And, the format is:
 /// “<biddingTokenVersionPrefix> + “:” <compressed/encoded token data>”
-+ (NSString * _Nullable)getBiddingToken SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)getBiddingToken SWIFT_WARN_UNUSED_RESULT;
 /// This method sets the plugin name and version for internal identification purposes.
 /// \param integrationName The plugin or adapter name.
 ///
@@ -791,13 +790,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Bool to check if the SDK has already been initialized successfully or not.
 + (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 /// This method returns the encoded token to be used for the bidding feature.
-/// This method will return nil if it is unable to find an available token.
 ///
 /// returns:
-/// The encoded string token or nil
+/// The encoded string token
 /// Note: The current bidding token version is 3. And, the format is:
 /// “<biddingTokenVersionPrefix> + “:” <compressed/encoded token data>”
-+ (NSString * _Nullable)getBiddingToken SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)getBiddingToken SWIFT_WARN_UNUSED_RESULT;
 /// This method sets the plugin name and version for internal identification purposes.
 /// \param integrationName The plugin or adapter name.
 ///
