@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint GoogleMobileAdsMediationVungle.podspec' to ensure this is a
+# Be sure to run `pod spec lint GoogleMobileAdsMediationVungle.podspec' to ensure this is a
 # valid spec before submitting.
 #
 
