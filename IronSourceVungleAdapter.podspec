@@ -31,6 +31,6 @@ s.pod_target_xcconfig =  { 'VALID_ARCHS' => 'arm64 arm64e armv7 armv7s x86_64'}
 s.vendored_frameworks = "ISVungleAdapter.xcframework"
 s.swift_version = '5.0'
 
-s.dependencies = { "VungleAds": "7.0.0-early2", "IronSourceSDK": "~> 7.2.4.0" }
+s.dependencies = { "VungleAds": "7.0.0-early2", "IronSourceSDK": "~> 7.2.7.0" }
 
 end
