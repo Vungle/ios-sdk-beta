@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "VungleAds"
-s.version          = "7.0.0-early2"
+s.version          = "7.0.1-zip_fix"
 s.summary          = "Vungle's iOS SDK'"
 s.description      = <<-DESC
 An SDK for video ad based monetization with the Vungle Network
@@ -18,7 +18,7 @@ s.author           = { "Vungle" => "tech-support@vungle.com" }
 s.platform     = :ios, '10.0'
 s.requires_arc = true
 
-s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x/VungleAds-7.0.0-early2.zip" }
+s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x/VungleAds-7.0.1-zip_fix.zip" }
 
 s.vendored_frameworks = 'static/VungleAdsSDK.xcframework'
 
