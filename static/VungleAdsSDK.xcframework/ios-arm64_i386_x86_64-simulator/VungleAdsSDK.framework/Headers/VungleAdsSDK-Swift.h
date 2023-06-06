@@ -223,6 +223,7 @@ typedef SWIFT_ENUM(NSInteger, BannerSize, open) {
 };
 
 @class NSString;
+@class VungleAdsExtras;
 @class NSNumber;
 
 SWIFT_CLASS("_TtC12VungleAdsSDK12BasePublicAd")
@@ -231,6 +232,7 @@ SWIFT_CLASS("_TtC12VungleAdsSDK12BasePublicAd")
 @property (nonatomic, readonly, copy) NSString * _Nonnull placementId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull eventId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull creativeId;
+- (void)setWithExtras:(VungleAdsExtras * _Nonnull)extras;
 /// This method returns the playability status of the ad for the specified placement.
 ///
 /// returns:
@@ -270,6 +272,7 @@ typedef SWIFT_ENUM(NSInteger, NativeAdOptionsPosition, open) {
 
 
 
+
 @class NSError;
 
 SWIFT_CLASS("_TtC12VungleAdsSDK9VungleAds")
@@ -304,6 +307,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// \param version The version of the plugin or adapter.
 ///
 + (void)setIntegrationName:(NSString * _Nonnull)integrationName version:(NSString * _Nonnull)version;
+@end
+
+
+SWIFT_CLASS("_TtC12VungleAdsSDK15VungleAdsExtras")
+@interface VungleAdsExtras : NSObject
+- (void)setWithWatermark:(NSString * _Nonnull)watermark;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol VungleBannerDelegate;
@@ -345,6 +355,170 @@ SWIFT_PROTOCOL("_TtP12VungleAdsSDK20VungleBannerDelegate_")
 - (void)bannerAdDidClick:(VungleBanner * _Nonnull)banner;
 - (void)bannerAdWillLeaveApplication:(VungleBanner * _Nonnull)banner;
 @end
+
+typedef SWIFT_ENUM(NSInteger, VungleError, open) {
+/// This shouldn’t be used. If an error is being logged, the context is already known.
+  VungleErrorUnknownError = 0,
+/// The app id fails SDK validation, like empty string
+  VungleErrorInvalidAppID = 1,
+/// The SDK is already initializing when another call is made
+  VungleErrorCurrentlyInitializing = 2,
+/// The SDK is already successfully initialized when another call is made
+  VungleErrorAlreadyInitialized = 3,
+/// Returned if any public API is called before initialization, if it requires initialization
+  VungleErrorSdkNotInitialized = 4,
+/// The error in retrieving webView user agent
+  VungleErrorUserAgentError = 5,
+/// Server error getting a response from an api call. Message contains the URL
+  VungleErrorApiRequestError = 6,
+/// Server didn’t send any data in the api call. Message contains the URL
+  VungleErrorApiResponseDataError = 7,
+/// SDK failed to decode the response into the expected object. Message contains the URL
+  VungleErrorApiResponseDecodeError = 8,
+/// The status code from an API call (like config, ads, etc) returned something not 2xx. Message contains the URL
+  VungleErrorApiFailedStatusCode = 9,
+/// The template url is nil, empty or invalid url. Message contains the URL
+  VungleErrorInvalidTemplateURL = 10,
+/// Failed to create a URL object to the targeted endpoint. Message contains the URL
+  VungleErrorInvalidRequestBuilderError = 11,
+/// Failed to unarchive the template file
+  VungleErrorTemplateUnzipError = 12,
+/// The CTA URL is an invalid url or it failed to open. Message contains the URL
+  VungleErrorInvalidCtaURL = 13,
+/// The URL from the cacheable replacements is invalid. Message contains the URL
+  VungleErrorInvalidAssetURL = 14,
+/// The asset failed to download or Apple didn’t return to us the temporary location. Message contains the URL
+  VungleErrorAssetRequestError = 15,
+/// Apple returned an unexpected response object or failed to load the downloaded data.
+  VungleErrorAssetResponseDataError = 16,
+/// Failed to save the downloaded asset to disk.
+  VungleErrorAssetWriteError = 17,
+/// The index.html doesn’t exist or there’s an issue with the event id to lookup the html file
+  VungleErrorInvalidIndexURL = 18,
+/// Failed to gzip the token data for the bidding token
+  VungleErrorGzipEncodeError = 19,
+/// The status code from the asset download didn’t return 200. Message contains the URL
+  VungleErrorAssetFailedStatusCode = 20,
+/// Failed to serialize the protobuf object for the request body
+  VungleErrorProtobufSerializationError = 21,
+/// Failed to encode the json object for the bidding token or into the request body.
+  VungleErrorJsonEncodeError = 22,
+/// Failed to create the TPAT URL object or send it. Message contains the URL
+  VungleErrorTpatError = 23,
+/// The ads endpoint doesn’t exist in the config response body
+  VungleErrorInvalidAdsEndpoint = 24,
+/// The ri endpoint doesn’t exist in the config response body
+  VungleErrorInvalidRiEndpoint = 25,
+/// The error_logs endpoint doesn’t exist in the config response body
+  VungleErrorInvalidLogErrorEndpoint = 26,
+/// The metrics endpoint doesn’t exist in the config response body
+  VungleErrorInvalidMetricsEndpoint = 27,
+  VungleErrorAssetFailedInsufficientSpace = 28,
+  VungleErrorAssetFailedMaxSpaceExceeded = 29,
+  VungleErrorInvalidTpatKey = 30,
+  VungleErrorEmptyTpatError = 31,
+/// MRAID JS file download failed
+  VungleErrorMraidDownloadJsError = 32,
+/// Failed to save MRAID JS files to disk
+  VungleErrorMraidJsWriteFailed = 33,
+/// OMSDK JS file download failed
+  VungleErrorOmsdkDownloadJsError = 34,
+/// Failed to save OMSDK JS files to disk
+  VungleErrorOmsdkJsWriteFailed = 35,
+/// Failed to get the App/play store region
+  VungleErrorStoreRegionCodeError = 36,
+/// Empty config response body
+  VungleErrorInvalidConfigResponse = 37,
+/// The event id in the ads response is invalid or the local URL can’t be created from it
+  VungleErrorInvalidEventIDError = 38,
+/// The placement id in the ad object is empty or not part of the config response
+  VungleErrorInvalidPlacementID = 39,
+/// Pub attempted to load when the ad is already marked as completed
+  VungleErrorAdConsumed = 40,
+/// Pub called load to a currently loading ad object
+  VungleErrorAdIsLoading = 41,
+/// Pub called load when the ad object already loaded successfully
+  VungleErrorAdAlreadyLoaded = 42,
+/// Pub called load, play or canPlay to an already playing ad object
+  VungleErrorAdIsPlaying = 43,
+/// Pub called load on a failed ad object
+  VungleErrorAdAlreadyFailed = 44,
+/// The template type in the ad object mismatch
+  VungleErrorPlacementAdTypeMismatch = 45,
+/// The bid payload doesn’t contain a valid ads response
+  VungleErrorInvalidBidPayload = 46,
+/// The bid payload was unable decode the payload into the json objects
+  VungleErrorInvalidJsonBidPayload = 47,
+/// The pub didnt’ call the load API before the play or it didn’t finish loading.
+  VungleErrorAdNotLoaded = 48,
+/// The platform returned a sleeping response
+  VungleErrorPlacementSleep = 49,
+/// Failed to decode the ad unit from the bid payload
+  VungleErrorInvalidAdunitBidPayload = 50,
+/// Failed to ungzip the ad from the bid payload
+  VungleErrorInvalidGzipBidPayload = 51,
+/// Ad metadata not found in response
+  VungleErrorAdResponseEmpty = 52,
+  VungleErrorAdResponseInvalidTemplateType = 53,
+/// Time out error for /ads request
+  VungleErrorAdResponseTimedOut = 54,
+/// MRAID JS file not available
+  VungleErrorMraidJsDoesNotExist = 55,
+/// MRAID JS copy to ad directory failed
+  VungleErrorMraidJsCopyFailed = 56,
+/// Failed to load ad due to server busy with retry after timer.
+  VungleErrorAdResponseRetryAfter = 57,
+/// Failed to load ad due to server busy while retry after duration is active.
+  VungleErrorAdLoadFailRetryAfter = 58,
+/// For logging errors provided from the template
+  VungleErrorMraidError = 59,
+/// The IFA changed values between loading and playing the ad object.
+  VungleErrorInvalidIfaStatus = 60,
+/// The ad response expired. This is fired immediately when the timer detects that it has expired.
+  VungleErrorAdExpired = 61,
+/// Failed to load the index html
+  VungleErrorMraidBridgeError = 62,
+/// The ad response expired. This is fired when the pub calls play on an expired ad object.
+  VungleErrorAdExpiredOnPlay = 63,
+/// Failed to send the win notification url. Message contains the URL
+  VungleErrorAdWinNotificationError = 64,
+/// Logged if asset fails to be removed on cleanup
+  VungleErrorAssetFailedToDelete = 65,
+/// Logged if load fails just before ad play
+  VungleErrorAdHtmlFailedToLoad = 66,
+/// MRAID JS event does not include expected value
+  VungleErrorMraidJsCallEmpty = 67,
+/// Unable to open deep link URL
+  VungleErrorDeeplinkOpenFailed = 68,
+/// Failed to evaluate javascript
+  VungleErrorEvaluateJavascriptFailed = 69,
+/// Failed to open the mraid link command
+  VungleErrorLinkCommandOpenFailed = 70,
+/// Failed to get the json string from json data
+  VungleErrorJsonParamsEncodeError = 71,
+/// Failed to generate json data from params dictionary
+  VungleErrorGenerateJsonDataError = 72,
+/// Template close due to Fatal error reported by template
+  VungleErrorAdClosedTemplateError = 73,
+/// Missing HeartBeat error
+  VungleErrorAdClosedMissingHeartbeat = 74,
+/// Pub attempted to call play on a fullscreen ad object with another already playing
+  VungleErrorConcurrentPlaybackUnsupported = 75,
+/// Pub provided a different size mount for the banner
+  VungleErrorBannerViewInvalidSize = 76,
+/// missing critical native ad assets
+  VungleErrorNativeAssetError = 77,
+  VungleErrorWebViewWebContentProcessDidTerminate = 78,
+  VungleErrorWebViewFailedNavigation = 79,
+  VungleErrorStoreKitLoadError = 80,
+  VungleErrorOmsdkCopyError = 81,
+  VungleErrorStoreOverlayLoadError = 82,
+  VungleErrorReachabilityInitializationFailed = 83,
+  VungleErrorUnknownRadioAccessTechnology = 84,
+  VungleErrorStoreKitPresentationError = 85,
+/// Memory Checks
+  VungleErrorOutOfMemory = 86,
+};
 
 @protocol VungleInterstitialDelegate;
 @class UIViewController;
@@ -721,6 +895,7 @@ typedef SWIFT_ENUM(NSInteger, BannerSize, open) {
 };
 
 @class NSString;
+@class VungleAdsExtras;
 @class NSNumber;
 
 SWIFT_CLASS("_TtC12VungleAdsSDK12BasePublicAd")
@@ -729,6 +904,7 @@ SWIFT_CLASS("_TtC12VungleAdsSDK12BasePublicAd")
 @property (nonatomic, readonly, copy) NSString * _Nonnull placementId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull eventId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull creativeId;
+- (void)setWithExtras:(VungleAdsExtras * _Nonnull)extras;
 /// This method returns the playability status of the ad for the specified placement.
 ///
 /// returns:
@@ -768,6 +944,7 @@ typedef SWIFT_ENUM(NSInteger, NativeAdOptionsPosition, open) {
 
 
 
+
 @class NSError;
 
 SWIFT_CLASS("_TtC12VungleAdsSDK9VungleAds")
@@ -802,6 +979,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// \param version The version of the plugin or adapter.
 ///
 + (void)setIntegrationName:(NSString * _Nonnull)integrationName version:(NSString * _Nonnull)version;
+@end
+
+
+SWIFT_CLASS("_TtC12VungleAdsSDK15VungleAdsExtras")
+@interface VungleAdsExtras : NSObject
+- (void)setWithWatermark:(NSString * _Nonnull)watermark;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol VungleBannerDelegate;
@@ -843,6 +1027,170 @@ SWIFT_PROTOCOL("_TtP12VungleAdsSDK20VungleBannerDelegate_")
 - (void)bannerAdDidClick:(VungleBanner * _Nonnull)banner;
 - (void)bannerAdWillLeaveApplication:(VungleBanner * _Nonnull)banner;
 @end
+
+typedef SWIFT_ENUM(NSInteger, VungleError, open) {
+/// This shouldn’t be used. If an error is being logged, the context is already known.
+  VungleErrorUnknownError = 0,
+/// The app id fails SDK validation, like empty string
+  VungleErrorInvalidAppID = 1,
+/// The SDK is already initializing when another call is made
+  VungleErrorCurrentlyInitializing = 2,
+/// The SDK is already successfully initialized when another call is made
+  VungleErrorAlreadyInitialized = 3,
+/// Returned if any public API is called before initialization, if it requires initialization
+  VungleErrorSdkNotInitialized = 4,
+/// The error in retrieving webView user agent
+  VungleErrorUserAgentError = 5,
+/// Server error getting a response from an api call. Message contains the URL
+  VungleErrorApiRequestError = 6,
+/// Server didn’t send any data in the api call. Message contains the URL
+  VungleErrorApiResponseDataError = 7,
+/// SDK failed to decode the response into the expected object. Message contains the URL
+  VungleErrorApiResponseDecodeError = 8,
+/// The status code from an API call (like config, ads, etc) returned something not 2xx. Message contains the URL
+  VungleErrorApiFailedStatusCode = 9,
+/// The template url is nil, empty or invalid url. Message contains the URL
+  VungleErrorInvalidTemplateURL = 10,
+/// Failed to create a URL object to the targeted endpoint. Message contains the URL
+  VungleErrorInvalidRequestBuilderError = 11,
+/// Failed to unarchive the template file
+  VungleErrorTemplateUnzipError = 12,
+/// The CTA URL is an invalid url or it failed to open. Message contains the URL
+  VungleErrorInvalidCtaURL = 13,
+/// The URL from the cacheable replacements is invalid. Message contains the URL
+  VungleErrorInvalidAssetURL = 14,
+/// The asset failed to download or Apple didn’t return to us the temporary location. Message contains the URL
+  VungleErrorAssetRequestError = 15,
+/// Apple returned an unexpected response object or failed to load the downloaded data.
+  VungleErrorAssetResponseDataError = 16,
+/// Failed to save the downloaded asset to disk.
+  VungleErrorAssetWriteError = 17,
+/// The index.html doesn’t exist or there’s an issue with the event id to lookup the html file
+  VungleErrorInvalidIndexURL = 18,
+/// Failed to gzip the token data for the bidding token
+  VungleErrorGzipEncodeError = 19,
+/// The status code from the asset download didn’t return 200. Message contains the URL
+  VungleErrorAssetFailedStatusCode = 20,
+/// Failed to serialize the protobuf object for the request body
+  VungleErrorProtobufSerializationError = 21,
+/// Failed to encode the json object for the bidding token or into the request body.
+  VungleErrorJsonEncodeError = 22,
+/// Failed to create the TPAT URL object or send it. Message contains the URL
+  VungleErrorTpatError = 23,
+/// The ads endpoint doesn’t exist in the config response body
+  VungleErrorInvalidAdsEndpoint = 24,
+/// The ri endpoint doesn’t exist in the config response body
+  VungleErrorInvalidRiEndpoint = 25,
+/// The error_logs endpoint doesn’t exist in the config response body
+  VungleErrorInvalidLogErrorEndpoint = 26,
+/// The metrics endpoint doesn’t exist in the config response body
+  VungleErrorInvalidMetricsEndpoint = 27,
+  VungleErrorAssetFailedInsufficientSpace = 28,
+  VungleErrorAssetFailedMaxSpaceExceeded = 29,
+  VungleErrorInvalidTpatKey = 30,
+  VungleErrorEmptyTpatError = 31,
+/// MRAID JS file download failed
+  VungleErrorMraidDownloadJsError = 32,
+/// Failed to save MRAID JS files to disk
+  VungleErrorMraidJsWriteFailed = 33,
+/// OMSDK JS file download failed
+  VungleErrorOmsdkDownloadJsError = 34,
+/// Failed to save OMSDK JS files to disk
+  VungleErrorOmsdkJsWriteFailed = 35,
+/// Failed to get the App/play store region
+  VungleErrorStoreRegionCodeError = 36,
+/// Empty config response body
+  VungleErrorInvalidConfigResponse = 37,
+/// The event id in the ads response is invalid or the local URL can’t be created from it
+  VungleErrorInvalidEventIDError = 38,
+/// The placement id in the ad object is empty or not part of the config response
+  VungleErrorInvalidPlacementID = 39,
+/// Pub attempted to load when the ad is already marked as completed
+  VungleErrorAdConsumed = 40,
+/// Pub called load to a currently loading ad object
+  VungleErrorAdIsLoading = 41,
+/// Pub called load when the ad object already loaded successfully
+  VungleErrorAdAlreadyLoaded = 42,
+/// Pub called load, play or canPlay to an already playing ad object
+  VungleErrorAdIsPlaying = 43,
+/// Pub called load on a failed ad object
+  VungleErrorAdAlreadyFailed = 44,
+/// The template type in the ad object mismatch
+  VungleErrorPlacementAdTypeMismatch = 45,
+/// The bid payload doesn’t contain a valid ads response
+  VungleErrorInvalidBidPayload = 46,
+/// The bid payload was unable decode the payload into the json objects
+  VungleErrorInvalidJsonBidPayload = 47,
+/// The pub didnt’ call the load API before the play or it didn’t finish loading.
+  VungleErrorAdNotLoaded = 48,
+/// The platform returned a sleeping response
+  VungleErrorPlacementSleep = 49,
+/// Failed to decode the ad unit from the bid payload
+  VungleErrorInvalidAdunitBidPayload = 50,
+/// Failed to ungzip the ad from the bid payload
+  VungleErrorInvalidGzipBidPayload = 51,
+/// Ad metadata not found in response
+  VungleErrorAdResponseEmpty = 52,
+  VungleErrorAdResponseInvalidTemplateType = 53,
+/// Time out error for /ads request
+  VungleErrorAdResponseTimedOut = 54,
+/// MRAID JS file not available
+  VungleErrorMraidJsDoesNotExist = 55,
+/// MRAID JS copy to ad directory failed
+  VungleErrorMraidJsCopyFailed = 56,
+/// Failed to load ad due to server busy with retry after timer.
+  VungleErrorAdResponseRetryAfter = 57,
+/// Failed to load ad due to server busy while retry after duration is active.
+  VungleErrorAdLoadFailRetryAfter = 58,
+/// For logging errors provided from the template
+  VungleErrorMraidError = 59,
+/// The IFA changed values between loading and playing the ad object.
+  VungleErrorInvalidIfaStatus = 60,
+/// The ad response expired. This is fired immediately when the timer detects that it has expired.
+  VungleErrorAdExpired = 61,
+/// Failed to load the index html
+  VungleErrorMraidBridgeError = 62,
+/// The ad response expired. This is fired when the pub calls play on an expired ad object.
+  VungleErrorAdExpiredOnPlay = 63,
+/// Failed to send the win notification url. Message contains the URL
+  VungleErrorAdWinNotificationError = 64,
+/// Logged if asset fails to be removed on cleanup
+  VungleErrorAssetFailedToDelete = 65,
+/// Logged if load fails just before ad play
+  VungleErrorAdHtmlFailedToLoad = 66,
+/// MRAID JS event does not include expected value
+  VungleErrorMraidJsCallEmpty = 67,
+/// Unable to open deep link URL
+  VungleErrorDeeplinkOpenFailed = 68,
+/// Failed to evaluate javascript
+  VungleErrorEvaluateJavascriptFailed = 69,
+/// Failed to open the mraid link command
+  VungleErrorLinkCommandOpenFailed = 70,
+/// Failed to get the json string from json data
+  VungleErrorJsonParamsEncodeError = 71,
+/// Failed to generate json data from params dictionary
+  VungleErrorGenerateJsonDataError = 72,
+/// Template close due to Fatal error reported by template
+  VungleErrorAdClosedTemplateError = 73,
+/// Missing HeartBeat error
+  VungleErrorAdClosedMissingHeartbeat = 74,
+/// Pub attempted to call play on a fullscreen ad object with another already playing
+  VungleErrorConcurrentPlaybackUnsupported = 75,
+/// Pub provided a different size mount for the banner
+  VungleErrorBannerViewInvalidSize = 76,
+/// missing critical native ad assets
+  VungleErrorNativeAssetError = 77,
+  VungleErrorWebViewWebContentProcessDidTerminate = 78,
+  VungleErrorWebViewFailedNavigation = 79,
+  VungleErrorStoreKitLoadError = 80,
+  VungleErrorOmsdkCopyError = 81,
+  VungleErrorStoreOverlayLoadError = 82,
+  VungleErrorReachabilityInitializationFailed = 83,
+  VungleErrorUnknownRadioAccessTechnology = 84,
+  VungleErrorStoreKitPresentationError = 85,
+/// Memory Checks
+  VungleErrorOutOfMemory = 86,
+};
 
 @protocol VungleInterstitialDelegate;
 @class UIViewController;
@@ -1219,6 +1567,7 @@ typedef SWIFT_ENUM(NSInteger, BannerSize, open) {
 };
 
 @class NSString;
+@class VungleAdsExtras;
 @class NSNumber;
 
 SWIFT_CLASS("_TtC12VungleAdsSDK12BasePublicAd")
@@ -1227,6 +1576,7 @@ SWIFT_CLASS("_TtC12VungleAdsSDK12BasePublicAd")
 @property (nonatomic, readonly, copy) NSString * _Nonnull placementId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull eventId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull creativeId;
+- (void)setWithExtras:(VungleAdsExtras * _Nonnull)extras;
 /// This method returns the playability status of the ad for the specified placement.
 ///
 /// returns:
@@ -1266,6 +1616,7 @@ typedef SWIFT_ENUM(NSInteger, NativeAdOptionsPosition, open) {
 
 
 
+
 @class NSError;
 
 SWIFT_CLASS("_TtC12VungleAdsSDK9VungleAds")
@@ -1300,6 +1651,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// \param version The version of the plugin or adapter.
 ///
 + (void)setIntegrationName:(NSString * _Nonnull)integrationName version:(NSString * _Nonnull)version;
+@end
+
+
+SWIFT_CLASS("_TtC12VungleAdsSDK15VungleAdsExtras")
+@interface VungleAdsExtras : NSObject
+- (void)setWithWatermark:(NSString * _Nonnull)watermark;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol VungleBannerDelegate;
@@ -1341,6 +1699,170 @@ SWIFT_PROTOCOL("_TtP12VungleAdsSDK20VungleBannerDelegate_")
 - (void)bannerAdDidClick:(VungleBanner * _Nonnull)banner;
 - (void)bannerAdWillLeaveApplication:(VungleBanner * _Nonnull)banner;
 @end
+
+typedef SWIFT_ENUM(NSInteger, VungleError, open) {
+/// This shouldn’t be used. If an error is being logged, the context is already known.
+  VungleErrorUnknownError = 0,
+/// The app id fails SDK validation, like empty string
+  VungleErrorInvalidAppID = 1,
+/// The SDK is already initializing when another call is made
+  VungleErrorCurrentlyInitializing = 2,
+/// The SDK is already successfully initialized when another call is made
+  VungleErrorAlreadyInitialized = 3,
+/// Returned if any public API is called before initialization, if it requires initialization
+  VungleErrorSdkNotInitialized = 4,
+/// The error in retrieving webView user agent
+  VungleErrorUserAgentError = 5,
+/// Server error getting a response from an api call. Message contains the URL
+  VungleErrorApiRequestError = 6,
+/// Server didn’t send any data in the api call. Message contains the URL
+  VungleErrorApiResponseDataError = 7,
+/// SDK failed to decode the response into the expected object. Message contains the URL
+  VungleErrorApiResponseDecodeError = 8,
+/// The status code from an API call (like config, ads, etc) returned something not 2xx. Message contains the URL
+  VungleErrorApiFailedStatusCode = 9,
+/// The template url is nil, empty or invalid url. Message contains the URL
+  VungleErrorInvalidTemplateURL = 10,
+/// Failed to create a URL object to the targeted endpoint. Message contains the URL
+  VungleErrorInvalidRequestBuilderError = 11,
+/// Failed to unarchive the template file
+  VungleErrorTemplateUnzipError = 12,
+/// The CTA URL is an invalid url or it failed to open. Message contains the URL
+  VungleErrorInvalidCtaURL = 13,
+/// The URL from the cacheable replacements is invalid. Message contains the URL
+  VungleErrorInvalidAssetURL = 14,
+/// The asset failed to download or Apple didn’t return to us the temporary location. Message contains the URL
+  VungleErrorAssetRequestError = 15,
+/// Apple returned an unexpected response object or failed to load the downloaded data.
+  VungleErrorAssetResponseDataError = 16,
+/// Failed to save the downloaded asset to disk.
+  VungleErrorAssetWriteError = 17,
+/// The index.html doesn’t exist or there’s an issue with the event id to lookup the html file
+  VungleErrorInvalidIndexURL = 18,
+/// Failed to gzip the token data for the bidding token
+  VungleErrorGzipEncodeError = 19,
+/// The status code from the asset download didn’t return 200. Message contains the URL
+  VungleErrorAssetFailedStatusCode = 20,
+/// Failed to serialize the protobuf object for the request body
+  VungleErrorProtobufSerializationError = 21,
+/// Failed to encode the json object for the bidding token or into the request body.
+  VungleErrorJsonEncodeError = 22,
+/// Failed to create the TPAT URL object or send it. Message contains the URL
+  VungleErrorTpatError = 23,
+/// The ads endpoint doesn’t exist in the config response body
+  VungleErrorInvalidAdsEndpoint = 24,
+/// The ri endpoint doesn’t exist in the config response body
+  VungleErrorInvalidRiEndpoint = 25,
+/// The error_logs endpoint doesn’t exist in the config response body
+  VungleErrorInvalidLogErrorEndpoint = 26,
+/// The metrics endpoint doesn’t exist in the config response body
+  VungleErrorInvalidMetricsEndpoint = 27,
+  VungleErrorAssetFailedInsufficientSpace = 28,
+  VungleErrorAssetFailedMaxSpaceExceeded = 29,
+  VungleErrorInvalidTpatKey = 30,
+  VungleErrorEmptyTpatError = 31,
+/// MRAID JS file download failed
+  VungleErrorMraidDownloadJsError = 32,
+/// Failed to save MRAID JS files to disk
+  VungleErrorMraidJsWriteFailed = 33,
+/// OMSDK JS file download failed
+  VungleErrorOmsdkDownloadJsError = 34,
+/// Failed to save OMSDK JS files to disk
+  VungleErrorOmsdkJsWriteFailed = 35,
+/// Failed to get the App/play store region
+  VungleErrorStoreRegionCodeError = 36,
+/// Empty config response body
+  VungleErrorInvalidConfigResponse = 37,
+/// The event id in the ads response is invalid or the local URL can’t be created from it
+  VungleErrorInvalidEventIDError = 38,
+/// The placement id in the ad object is empty or not part of the config response
+  VungleErrorInvalidPlacementID = 39,
+/// Pub attempted to load when the ad is already marked as completed
+  VungleErrorAdConsumed = 40,
+/// Pub called load to a currently loading ad object
+  VungleErrorAdIsLoading = 41,
+/// Pub called load when the ad object already loaded successfully
+  VungleErrorAdAlreadyLoaded = 42,
+/// Pub called load, play or canPlay to an already playing ad object
+  VungleErrorAdIsPlaying = 43,
+/// Pub called load on a failed ad object
+  VungleErrorAdAlreadyFailed = 44,
+/// The template type in the ad object mismatch
+  VungleErrorPlacementAdTypeMismatch = 45,
+/// The bid payload doesn’t contain a valid ads response
+  VungleErrorInvalidBidPayload = 46,
+/// The bid payload was unable decode the payload into the json objects
+  VungleErrorInvalidJsonBidPayload = 47,
+/// The pub didnt’ call the load API before the play or it didn’t finish loading.
+  VungleErrorAdNotLoaded = 48,
+/// The platform returned a sleeping response
+  VungleErrorPlacementSleep = 49,
+/// Failed to decode the ad unit from the bid payload
+  VungleErrorInvalidAdunitBidPayload = 50,
+/// Failed to ungzip the ad from the bid payload
+  VungleErrorInvalidGzipBidPayload = 51,
+/// Ad metadata not found in response
+  VungleErrorAdResponseEmpty = 52,
+  VungleErrorAdResponseInvalidTemplateType = 53,
+/// Time out error for /ads request
+  VungleErrorAdResponseTimedOut = 54,
+/// MRAID JS file not available
+  VungleErrorMraidJsDoesNotExist = 55,
+/// MRAID JS copy to ad directory failed
+  VungleErrorMraidJsCopyFailed = 56,
+/// Failed to load ad due to server busy with retry after timer.
+  VungleErrorAdResponseRetryAfter = 57,
+/// Failed to load ad due to server busy while retry after duration is active.
+  VungleErrorAdLoadFailRetryAfter = 58,
+/// For logging errors provided from the template
+  VungleErrorMraidError = 59,
+/// The IFA changed values between loading and playing the ad object.
+  VungleErrorInvalidIfaStatus = 60,
+/// The ad response expired. This is fired immediately when the timer detects that it has expired.
+  VungleErrorAdExpired = 61,
+/// Failed to load the index html
+  VungleErrorMraidBridgeError = 62,
+/// The ad response expired. This is fired when the pub calls play on an expired ad object.
+  VungleErrorAdExpiredOnPlay = 63,
+/// Failed to send the win notification url. Message contains the URL
+  VungleErrorAdWinNotificationError = 64,
+/// Logged if asset fails to be removed on cleanup
+  VungleErrorAssetFailedToDelete = 65,
+/// Logged if load fails just before ad play
+  VungleErrorAdHtmlFailedToLoad = 66,
+/// MRAID JS event does not include expected value
+  VungleErrorMraidJsCallEmpty = 67,
+/// Unable to open deep link URL
+  VungleErrorDeeplinkOpenFailed = 68,
+/// Failed to evaluate javascript
+  VungleErrorEvaluateJavascriptFailed = 69,
+/// Failed to open the mraid link command
+  VungleErrorLinkCommandOpenFailed = 70,
+/// Failed to get the json string from json data
+  VungleErrorJsonParamsEncodeError = 71,
+/// Failed to generate json data from params dictionary
+  VungleErrorGenerateJsonDataError = 72,
+/// Template close due to Fatal error reported by template
+  VungleErrorAdClosedTemplateError = 73,
+/// Missing HeartBeat error
+  VungleErrorAdClosedMissingHeartbeat = 74,
+/// Pub attempted to call play on a fullscreen ad object with another already playing
+  VungleErrorConcurrentPlaybackUnsupported = 75,
+/// Pub provided a different size mount for the banner
+  VungleErrorBannerViewInvalidSize = 76,
+/// missing critical native ad assets
+  VungleErrorNativeAssetError = 77,
+  VungleErrorWebViewWebContentProcessDidTerminate = 78,
+  VungleErrorWebViewFailedNavigation = 79,
+  VungleErrorStoreKitLoadError = 80,
+  VungleErrorOmsdkCopyError = 81,
+  VungleErrorStoreOverlayLoadError = 82,
+  VungleErrorReachabilityInitializationFailed = 83,
+  VungleErrorUnknownRadioAccessTechnology = 84,
+  VungleErrorStoreKitPresentationError = 85,
+/// Memory Checks
+  VungleErrorOutOfMemory = 86,
+};
 
 @protocol VungleInterstitialDelegate;
 @class UIViewController;

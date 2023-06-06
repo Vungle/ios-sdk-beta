@@ -47,6 +47,11 @@ import zlib
   @objc public func present(on publisherView: UIKit.UIView)
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc final public class VungleAdsExtras : ObjectiveC.NSObject {
+  @objc final public func set(watermark: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public protocol VungleNativeDelegate : ObjectiveC.NSObjectProtocol {
   @objc optional func nativeAdDidLoad(_ native: VungleAdsSDK.VungleNative)
   @objc optional func nativeAdDidFailToLoad(_ native: VungleAdsSDK.VungleNative, withError: Foundation.NSError)
@@ -124,6 +129,7 @@ import zlib
     @objc get
   }
   @objc deinit
+  @objc public func set(extras: VungleAdsSDK.VungleAdsExtras)
   @objc public func canPlayAd() -> Swift.Bool
   @objc public func load(_ bidPayload: Swift.String? = nil)
 }
@@ -175,6 +181,100 @@ import zlib
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
+@objc public enum VungleError : Swift.Int {
+  case unknownError
+  case invalidAppID
+  case currentlyInitializing
+  case alreadyInitialized
+  case sdkNotInitialized
+  case userAgentError
+  case apiRequestError
+  case apiResponseDataError
+  case apiResponseDecodeError
+  case apiFailedStatusCode
+  case invalidTemplateURL
+  case invalidRequestBuilderError
+  case templateUnzipError
+  case invalidCtaURL
+  case invalidAssetURL
+  case assetRequestError
+  case assetResponseDataError
+  case assetWriteError
+  case invalidIndexURL
+  case gzipEncodeError
+  case assetFailedStatusCode
+  case protobufSerializationError
+  case jsonEncodeError
+  case tpatError
+  case invalidAdsEndpoint
+  case invalidRiEndpoint
+  case invalidLogErrorEndpoint
+  case invalidMetricsEndpoint
+  case assetFailedInsufficientSpace
+  case assetFailedMaxSpaceExceeded
+  case invalidTpatKey
+  case emptyTpatError
+  case mraidDownloadJsError
+  case mraidJsWriteFailed
+  case omsdkDownloadJsError
+  case omsdkJsWriteFailed
+  case storeRegionCodeError
+  case invalidConfigResponse
+  case invalidEventIDError
+  case invalidPlacementID
+  case adConsumed
+  case adIsLoading
+  case adAlreadyLoaded
+  case adIsPlaying
+  case adAlreadyFailed
+  case placementAdTypeMismatch
+  case invalidBidPayload
+  case invalidJsonBidPayload
+  case adNotLoaded
+  case placementSleep
+  case invalidAdunitBidPayload
+  case invalidGzipBidPayload
+  case adResponseEmpty
+  case adResponseInvalidTemplateType
+  case adResponseTimedOut
+  case mraidJsDoesNotExist
+  case mraidJsCopyFailed
+  case adResponseRetryAfter
+  case adLoadFailRetryAfter
+  case mraidError
+  case invalidIfaStatus
+  case adExpired
+  case mraidBridgeError
+  case adExpiredOnPlay
+  case adWinNotificationError
+  case assetFailedToDelete
+  case adHtmlFailedToLoad
+  case mraidJsCallEmpty
+  case deeplinkOpenFailed
+  case evaluateJavascriptFailed
+  case linkCommandOpenFailed
+  case jsonParamsEncodeError
+  case generateJsonDataError
+  case adClosedTemplateError
+  case adClosedMissingHeartbeat
+  case concurrentPlaybackUnsupported
+  case bannerViewInvalidSize
+  case nativeAssetError
+  case webViewWebContentProcessDidTerminate
+  case webViewFailedNavigation
+  case storeKitLoadError
+  case omsdkCopyError
+  case storeOverlayLoadError
+  case reachabilityInitializationFailed
+  case unknownRadioAccessTechnology
+  case storeKitPresentationError
+  case outOfMemory
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class VunglePrivacySettings : ObjectiveC.NSObject {
   @objc public static func setGDPRStatus(_ optIn: Swift.Bool)
   @objc public static func setGDPRMessageVersion(_ version: Swift.String)
@@ -225,3 +325,6 @@ extension VungleAdsSDK.NativeAdOptionsPosition : Swift.RawRepresentable {}
 extension VungleAdsSDK.ConsentStatus : Swift.Equatable {}
 extension VungleAdsSDK.ConsentStatus : Swift.Hashable {}
 extension VungleAdsSDK.ConsentStatus : Swift.RawRepresentable {}
+extension VungleAdsSDK.VungleError : Swift.Equatable {}
+extension VungleAdsSDK.VungleError : Swift.Hashable {}
+extension VungleAdsSDK.VungleError : Swift.RawRepresentable {}
