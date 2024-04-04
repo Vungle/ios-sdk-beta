@@ -5,22 +5,27 @@
 
 Pod::Spec.new do |s|
 s.name             = "VungleAds"
-s.version          = "7.0.1"
+s.version          = "7.3.1"
 s.summary          = "Vungle's iOS SDK'"
 s.description      = <<-DESC
 An SDK for video ad based monetization with the Vungle Network
 DESC
 
-s.homepage         = "https://www.vungle.com/"
+s.homepage         = "https://support.vungle.com/hc/en-us/articles/360002925791-Integrate-Vungle-SDK-for-iOS"
+s.readme           = "https://github.com/Vungle/iOS-SDK/blob/master/README.md"
+s.changelog        = "https://github.com/Vungle/iOS-SDK/blob/master/CHANGELOG.md"
 s.license          = { :type => "Commercial", :file => "LICENSE.md" }
 s.author           = { "Vungle" => "tech-support@vungle.com" }
 
-s.platform     = :ios, '10.0'
+s.platform     = :ios, '12.0'
 s.requires_arc = true
 
-s.source           = { :http => "https://vungle2-sdk-dev-scratch.s3.amazonaws.com/ios/7.0.x/VungleAds-7.0.1.zip" }
+s.source           = { :http => "https://vungle2-cdn-prod.s3.amazonaws.com/sdks/ios/7.3.x/VungleAds-7.3.1.zip" }
 
 s.vendored_frameworks = 'static/VungleAdsSDK.xcframework'
+s.resource_bundles = {
+    'VungleAds' => ["static/VungleAdsSDK.xcframework/ios-arm64/**/PrivacyInfo.xcprivacy"] 
+}
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
 s.weak_framework = 'WebKit', 'UIKit', 'Foundation'
