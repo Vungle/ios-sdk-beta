@@ -25,7 +25,7 @@ s.source           = {
 :type => "zip"
 }
 
-s.vendored_frameworks = 'VungleAds-7.3.1/dynamic/VungleAdsSDK.xcframework'
+s.vendored_frameworks = 'dynamic/VungleAdsSDK.xcframework'
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
 s.weak_framework = 'WebKit', 'UIKit', 'Foundation'
