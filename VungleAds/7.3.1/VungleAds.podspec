@@ -20,7 +20,10 @@ s.author           = { "Vungle" => "tech-support@vungle.com" }
 s.platform     = :ios, '12.0'
 s.requires_arc = true
 
-s.source           = { :http => "https://vungle2-cdn-prod.s3.amazonaws.com/sdks/ios/7.3.x/VungleAds-7.3.1.zip" }
+s.source           = { 
+:http => "https://vungle2-cdn-prod.s3.amazonaws.com/sdks/ios/7.3.x/VungleAds-7.3.1.zip", 
+:type => "zip"
+}
 
 s.vendored_frameworks = 'dynamic/VungleAdsSDK.xcframework'
 
