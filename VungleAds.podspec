@@ -22,10 +22,7 @@ s.requires_arc = true
 
 s.source           = { :http => "https://vungle2-cdn-prod.s3.amazonaws.com/sdks/ios/7.3.x/VungleAds-7.3.1.zip" }
 
-s.vendored_frameworks = 'static/VungleAdsSDK.xcframework'
-s.resource_bundles = {
-    'VungleAds' => ["static/VungleAdsSDK.xcframework/ios-arm64/**/PrivacyInfo.xcprivacy"] 
-}
+s.vendored_frameworks = 'dynamic/VungleAdsSDK.xcframework'
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
 s.weak_framework = 'WebKit', 'UIKit', 'Foundation'
