@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "VungleAds"
-s.version          = "7.3.1"
+s.version          = "7.3.2"
 s.summary          = "Vungle's iOS SDK'"
 s.description      = <<-DESC
 An SDK for video ad based monetization with the Vungle Network
@@ -25,7 +25,7 @@ s.source           = {
 :type => "zip"
 }
 
-s.vendored_frameworks = 'static/VungleAdsSDK.xcframework'
+s.vendored_frameworks = 'dynamic/VungleAdsSDK.xcframework'
 
 s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreMedia', 'MediaPlayer', 'QuartzCore', 'StoreKit', 'SystemConfiguration'
 s.weak_framework = 'WebKit', 'UIKit', 'Foundation'
