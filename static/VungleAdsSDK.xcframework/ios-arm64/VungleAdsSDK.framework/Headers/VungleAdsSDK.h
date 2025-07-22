@@ -16,3 +16,4 @@ FOUNDATION_EXPORT const unsigned char VungleAdsSDKVersionString[];
 #ifdef VUNGLE_SDK_INTERNAL
 #import "OMIDImports.h"
 #endif
+#import <VungleAdsSDK/SafeOverlayDismiss.h>
