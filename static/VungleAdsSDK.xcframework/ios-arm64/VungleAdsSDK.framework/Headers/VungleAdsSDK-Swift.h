@@ -650,7 +650,6 @@ SWIFT_CLASS("_TtC12VungleAdsSDK16VungleBannerView")
 
 
 
-
 SWIFT_PROTOCOL("_TtP12VungleAdsSDK24VungleBannerViewDelegate_")
 @protocol VungleBannerViewDelegate <NSObject>
 @optional
@@ -860,6 +859,10 @@ typedef SWIFT_ENUM(NSInteger, VungleError, open) {
   VungleErrorStoreOverlayPresentationError = 2008,
 /// The SDK detected invalid View/ViewController to present an ad.
   VungleErrorInvalidPlayParameter = 2009,
+/// The error occurred when the SDK tried dismissing SKO.
+  VungleErrorStoreOverlayDismissalError = 2010,
+/// The ad presenter is deallocated before web view facade load completion.
+  VungleErrorPresenterDeallocatedBeforeLoadCompletion = 2011,
 /// Memory Checks
   VungleErrorOutOfMemory = 3001,
 /// Failed to get OS Installation Time. Introduced in 7.5.0 SDK.

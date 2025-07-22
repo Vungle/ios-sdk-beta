@@ -369,6 +369,8 @@ import zlib
   case storeKitPresentationError = 2007
   case storeOverlayPresentationError = 2008
   case invalidPlayParameter = 2009
+  case storeOverlayDismissalError = 2010
+  case presenterDeallocatedBeforeLoadCompletion = 2011
   case outOfMemory = 3001
   case vungleOitCreationError = 4000
   case adNoFill = 10001
