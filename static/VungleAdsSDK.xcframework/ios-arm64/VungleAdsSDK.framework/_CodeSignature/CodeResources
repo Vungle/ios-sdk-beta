@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/VungleAdsSDK-Swift.h</key>
 		<data>
-		qocB80ld6L+Yxl1LyJN1gnCLQ04=
+		sjrqP1Hib2Rf1PMd2feZrGAUmBE=
 		</data>
 		<key>Headers/VungleAdsSDK.h</key>
 		<data>
@@ -14,31 +14,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		02bbCm9A8uX4bjGjudRU9kt32Ww=
-		</data>
-		<key>LICENSE</key>
-		<data>
-		rUPj5IQNVR0nlvJuGO6fFxr8uYE=
+		45kqah05AvxC2Se7t64u9YXHhvw=
 		</data>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		i3JxYfrWyKJ+feINuEpeJimdklY=
+		oFVGuc27f5SLDNqp/zaJvHOfbV0=
 		</data>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		T0tjZwDXxiUDu/oFc9l/cYAn2qA=
+		KIQhAzOhToewpnMKuFAF7IBluBY=
 		</data>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		auOWltdPf/z7bOc6g2M8sjTzPCE=
+		TlZ71MxGDLg/QOOaTIZt+LFmoeY=
 		</data>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		T0tjZwDXxiUDu/oFc9l/cYAn2qA=
+		KIQhAzOhToewpnMKuFAF7IBluBY=
 		</data>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		UKDv1xgrLa48ABn5UqJE6O17A5c=
+		pLCU6cUsLlTjT4gV753ioVxlWU8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -46,7 +42,7 @@
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
-		99lHiKAMEwibufp7vGK7r8V203g=
+		COhxM0H7+Gp/ed2fy4Li+IZWHRQ=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -55,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qocB80ld6L+Yxl1LyJN1gnCLQ04=
+			sjrqP1Hib2Rf1PMd2feZrGAUmBE=
 			</data>
 			<key>hash2</key>
 			<data>
-			90pqhnqnsTQOugYrV00wUhU98Xa6Ak4UfD9ty+1eIak=
+			ciJXxixYjE+JstQdWBXTYo+RNzifT70WgFY8GoRaNEo=
 			</data>
 		</dict>
 		<key>Headers/VungleAdsSDK.h</key>
@@ -73,70 +69,59 @@
 			jc62sKtWCA+1odD4FvDuHI5s164EOyNwzHparHXvtwI=
 			</data>
 		</dict>
-		<key>LICENSE</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rUPj5IQNVR0nlvJuGO6fFxr8uYE=
-			</data>
-			<key>hash2</key>
-			<data>
-			i49LJpoetP0BJdJIWfX41svXlZaFbeKbCGlchSlWkVs=
-			</data>
-		</dict>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			i3JxYfrWyKJ+feINuEpeJimdklY=
+			oFVGuc27f5SLDNqp/zaJvHOfbV0=
 			</data>
 			<key>hash2</key>
 			<data>
-			XefqAijyjnVjSnZTAJkyb8vRDb6b4lcvYV5ExGIT7Nw=
+			pK2vofUJWar3QIm+0NgrWtLKRV5XmzoJr9MBr8/PAog=
 			</data>
 		</dict>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T0tjZwDXxiUDu/oFc9l/cYAn2qA=
+			KIQhAzOhToewpnMKuFAF7IBluBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EN1hpjKAr98YA6vLng+Eqry3EHUsnZmdRoq5ECUD6+8=
+			yOZ4ScqdpKS6cATY+8Tp/5Kh/2nOuClgp7Qt8yNsF4k=
 			</data>
 		</dict>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			auOWltdPf/z7bOc6g2M8sjTzPCE=
+			TlZ71MxGDLg/QOOaTIZt+LFmoeY=
 			</data>
 			<key>hash2</key>
 			<data>
-			YG5WZc8ytEHP3uWKn62UCbjgOUxWAsIQsS2kUXrpOkg=
+			89W/6ZpI+4C9f6YgYmIAsAA03/o7JI8+aTs0RWmfJ3I=
 			</data>
 		</dict>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T0tjZwDXxiUDu/oFc9l/cYAn2qA=
+			KIQhAzOhToewpnMKuFAF7IBluBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EN1hpjKAr98YA6vLng+Eqry3EHUsnZmdRoq5ECUD6+8=
+			yOZ4ScqdpKS6cATY+8Tp/5Kh/2nOuClgp7Qt8yNsF4k=
 			</data>
 		</dict>
 		<key>Modules/VungleAdsSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UKDv1xgrLa48ABn5UqJE6O17A5c=
+			pLCU6cUsLlTjT4gV753ioVxlWU8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ozzSm81tKsWVzWqUg90MP6CI0Y7VZHsrAwI6BoH6pSI=
+			qocAW20JUhaBnrDUNuw0TbKKTKSRdByWpATpwmQxaLM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -154,11 +139,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			99lHiKAMEwibufp7vGK7r8V203g=
+			COhxM0H7+Gp/ed2fy4Li+IZWHRQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			RX/aXFa+FOCjdkY1ix5eE2OBHeionXWqGUSFGTmdVUQ=
+			YAGiRWxwvRHypK5douHP5fWvYgPwyj/xXlq1RpJ1kAQ=
 			</data>
 		</dict>
 	</dict>
